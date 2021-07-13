@@ -1,0 +1,52 @@
+/** css reset */
+* {
+  box-sizing: border-box;
+}
+
+html, body, div, pre, nav, textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  font: inherit;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+textarea {
+  outline: none;
+}
+
+/** test css */
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:  "nav nav"
+                        "input output";
+  border: 1px solid rgb(229, 229, 229);
+  margin: 40px 100px;
+}
+
+.font-box {
+  height: 5vh;
+  border-bottom: 1px solid rgb(229, 229, 229);
+  grid-area: nav;
+}
+
+.get-input {
+  height: 50vh;
+  border-right: 1px solid rgb(229, 229, 229);
+  grid-area: input;
+  padding: 10px;
+}
+
+.output {
+  height: 50vh;
+  grid-area: output;
+  padding: 10px;
+}
+
+.hh1 {
+  font-size: 40px;
+  font-weight: bold;
+}
