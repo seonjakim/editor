@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 
-html, body, div, pre, nav, textarea {
+html, body, div, nav, textarea {
   margin: 0;
   padding: 0;
   border: 0;
@@ -46,7 +46,40 @@ textarea {
   padding: 10px;
 }
 
+/** tag styles */
 .hh1 {
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  border-bottom: 3px double #999;
+  padding-bottom: 7px;
+  font-weight: 700;
+  color: #222;
+  margin: 24px 0 15px;
+}
+
+.hh2 {
+  min-height: 23px;
+  font-size: 22px;
+  line-height: 23px;
+  border-bottom: 1px solid #dbdbdb;
+  margin: 20px 0 13px;
+  padding-bottom: 7px;
+  font-weight: 700;
+}
+
+.hh3 {
+  line-height: 18px;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 18px 0 2px;
+  color: #222;
+  padding-bottom: 7px;
+}
+
+.quotes {
+  min-height: 20px;
+  margin: 14px 0;
+  border-left: 4px solid #e5e5e5;
+  padding: 0 16px;
+  color: #999;
 }
