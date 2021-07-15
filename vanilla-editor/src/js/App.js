@@ -3,7 +3,7 @@ import { readString } from '../../../lib/parser'
 const App = {
   render: async () => `
     <div class='container'>
-      <nav class='font-box'></nav>
+      <nav class='toolbar-box'></nav>
       <textarea class='get-input'></textarea>
       <div class='output'></div>
     </div>
@@ -20,6 +20,6 @@ const App = {
       /** present the editor items */
       editorOutput.innerHTML = el
     })
-  }
+  },
 }
 export default App

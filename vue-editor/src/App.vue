@@ -1,7 +1,15 @@
-<template></template>
+<template>
+  <Frame />
+</template>
 
 <script>
-</script>
+import Frame from "./components/Frame.vue";
 
-<style>
-</style>
+export default {
+  name: "App",
+  data() {
+    return {};
+  },
+  components: { Frame },
+};
+</script>
