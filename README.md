@@ -1,9 +1,9 @@
 # Editor MVP
-![visit the editor page](https://seonjakim.github.io/editor-react/)
+[link to editor page!](https://seonjakim.github.io/editor-react/)
 ## React와 Vue, Vanilla js로 각각 구현
-> lib
+### >lib
 문자를 인식하여 변환하는 함수입니다.
-> styles
+### >styles
 모든 프로젝트가 공유하고 있는 css 파일입니다.
 
 ### 실행
