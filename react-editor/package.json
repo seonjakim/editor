@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/seonjakim/editor-react/issues"
   },
-  "homepage": "https://seonjakim.github.io/editor-react/",
+  "homepage": "https://seonjakim.github.io/editor/",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
