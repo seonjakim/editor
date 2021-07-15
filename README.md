@@ -7,5 +7,5 @@
 모든 프로젝트가 공유하고 있는 css 파일입니다.
 
 ### 실행
-각 폴더 내부에서 `npm install`
+각 폴더 내부에서 `npm install`<br>
 `npm run dev` 명령어를 통해 local에서 실행해볼 수 있습니다.
