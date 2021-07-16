@@ -1,4 +1,4 @@
-import { readString } from '../../../lib/parser'
+import { toMarkdown } from '../../lib/parser'
 
 const App = {
   render: async () => `
@@ -9,16 +9,16 @@ const App = {
     </div>
   `,
   after_render: async () => {
-    const textVal = document.querySelector('.get-input')
-    const editorOutput = document.querySelector('.output')
+    const textareaValue = document.querySelector('.get-input')
+    const markdownOutput = document.querySelector('.output')
 
-    textVal.addEventListener('keyup', (e) => {
+    textareaValue.addEventListener('keyup', (e) => {
       /** map for editor inner html */
-      let el = readString(e.target.value)
+      let markdowned = toMarkdown(e.target.value)
         .map((e, idx) => `<div key='${idx}' class='${e.tag}'>${e.text}</div>`)
         .join('')
       /** present the editor items */
-      editorOutput.innerHTML = el
+      markdownOutput.innerHTML = markdowned
     })
   },
 }

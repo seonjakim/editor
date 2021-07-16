@@ -1,4 +1,4 @@
-import App from './src/js/App'
+import App from './src/App'
 import '../styles/style.css'
 
 const Index = async () => {

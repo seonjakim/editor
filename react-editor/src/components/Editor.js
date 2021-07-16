@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { readString } from '../../../lib/parser'
+import { toMarkdown } from '../../../lib/parser'
 import '../../../styles/style.css'
 
 const Editor = () => {
@@ -9,22 +9,21 @@ const Editor = () => {
     <button key={idx} className={`toolbar-icons ${el}-i`}></button>
   ))
   /** get input from textarea and parsing it to new tag form */
-  let defaultContent = '# This is h1\n## This is h2\n### This is h3\n>This is Quote\nThis is plain text'
-  const [textVal, setTextVal] = useState(defaultContent)
-  let el = readString(textVal)
-  let contents =
-    el !== undefined &&
-    el.map((e, idx) => (
-      <div key={idx} className={e.tag}>
-        {e.text}
-      </div>
-    ))
+  let defaultContent =
+    '# This is h1\n## This is h2\n### This is h3\n>This is Quote\nThis is plain text'
+  const [inputValue, setInputValue] = useState(defaultContent)
+  let markdownObject = toMarkdown(inputValue)
+  let contents = markdownObject.map((el, idx) => (
+    <div key={idx} className={el.tag}>
+      {el.text}
+    </div>
+  ))
 
   return (
     <div className='container'>
       <nav className='toolbar-box'>{toolbar}</nav>
       <textarea
-        onChange={(e) => setTextVal(e.target.value)}
+        onChange={(e) => setInputValue(e.target.value)}
         className='get-input'
         defaultValue={defaultContent}
       ></textarea>
