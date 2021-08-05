@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { toMarkdown } from '../../../lib/parser'
-import '../../../styles/style.css'
+import { toMarkdown } from '../lib/parser'
 
 const Editor = () => {
   /** create buttons */
