@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx parcel index.html",
-    "build" : "npx parcel build index.html"
+    "build": "npx parcel build index.html"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,6 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "devDependencies": {}
 }
