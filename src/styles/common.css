@@ -12,7 +12,7 @@ button {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
+  font-size: 14px;
   vertical-align: baseline;
   font: inherit;
   font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -23,34 +23,9 @@ textarea {
   resize: none;
 }
 
-/** test css */
-.container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas:
-    'nav nav'
-    'input output';
-  border: 1px solid rgb(229, 229, 229);
-}
-
-.toolbar-box {
-  height: 31px;
-  padding: 0 25px;
-  border-bottom: 1px solid rgb(229, 229, 229);
-  grid-area: nav;
-  display: flex;
-  align-items: center;
-}
-
-.get-input {
-  height: 50vh;
-  border-right: 1px solid rgb(229, 229, 229);
-  grid-area: input;
-  padding: 10px 25px;
-}
-
-.output {
-  height: 50vh;
-  grid-area: output;
-  padding: 10px 25px;
+/** css tokens */
+:root {
+  --naver-green: #00c73c;
+  --background-color: #f9f9f9;
+  --button-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
 }

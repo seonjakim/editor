@@ -1,1 +1,25 @@
 @import './common.css';
+
+/** container related css */
+.container-background {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+}
+
+.spinbox-container {
+  width: 90%;
+  height: 90%;
+  border-radius: 4px;
+  /* padding: 1em; */
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: grid;
+  grid-template-rows: 5fr 1fr;
+}
+/* .spinbox-window {
+  background-color: red;
+} */
