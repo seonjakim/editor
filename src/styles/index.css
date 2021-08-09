@@ -23,3 +23,23 @@
 /* .spinbox-window {
   background-color: red;
 } */
+
+/** button related css */
+.button-common {
+  background-color: var(--naver-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.round-button {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+}
+.square-button {
+  padding: 0.5em;
+  display: inline;
+  /* font-size: 1.2rem; */
+  border-radius: 4px;
+}
