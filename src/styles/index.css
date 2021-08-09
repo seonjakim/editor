@@ -14,23 +14,33 @@
   width: 90%;
   height: 90%;
   border-radius: 4px;
-  /* padding: 1em; */
   background-color: #fff;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   display: grid;
   grid-template-rows: 5fr 1fr;
 }
-/* .spinbox-window {
-  background-color: red;
-} */
+.spinbox-window {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
 
 /** button related css */
 .button-common {
-  background-color: var(--naver-green);
+  width: 18%;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid #eee;
+}
+.high {
+  background-color: var(--naver-green);
+  border: 1px solid var(--naver-green);
   color: #fff;
+}
+.low {
+  color: var(--naver-green);
+  border: 1px solid var(--naver-green);
 }
 .round-button {
   width: 68px;
@@ -38,8 +48,49 @@
   border-radius: 50%;
 }
 .square-button {
-  padding: 0.5em;
-  display: inline;
-  /* font-size: 1.2rem; */
   border-radius: 4px;
+}
+
+/** spinbox card related css */
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7em;
+  height: 10%;
+  width: 30%;
+  border-radius: 4px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.number-window {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--card-background);
+}
+
+/** icon */
+.arrow-i {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(https://pilly.kr/images/icons/common/icon-arrow-down.png);
+}
+.up {
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 850px) {
+  .card-container {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .card-container {
+    width: 100%;
+  }
 }
