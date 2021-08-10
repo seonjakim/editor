@@ -1,28 +1,29 @@
 import { useState, useEffect, useCallback } from 'react'
 
-const useLongPress = (callback = () => {}, ms = 300) => {
-  const [isLongPress, setIsLongPress] = useState({ press: false, time: ms })
-  console.log(isLongPress.time)
+const useLongPress = (callback = () => {}) => {
+  const [isLongPress, setIsLongPress] = useState(false)
+  const [time, setTime] = useState(1000)
   useEffect(() => {
     let timer
-    if (isLongPress.press) {
-      setIsLongPress({ time: isLongPress.time-- })
-      console.log(isLongPress.time)
-      timer = setTimeout(callback, 300)
+    if (isLongPress) {
+      console.log(time)
+      timer = setTimeout(callback, time)
+      time > 100 ? setTime(time - 1) : ''
     } else {
       clearTimeout(timer)
+      setTime(1000)
     }
 
     return () => {
       clearTimeout(timer)
     }
-  }, [callback, ms, isLongPress.press])
+  }, [callback, isLongPress])
 
   const onPress = useCallback(() => {
-    setIsLongPress({ press: true, time: ms })
+    setIsLongPress(true)
   }, [])
   const offPress = useCallback(() => {
-    setIsLongPress({ press: false, time: ms })
+    setIsLongPress(false)
   }, [])
 
   return {
