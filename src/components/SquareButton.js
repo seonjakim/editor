@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 const SquareButton = ({
   useLongPress,
@@ -6,30 +6,10 @@ const SquareButton = ({
   buttonName,
   emphasis,
 }) => {
-  const [isLongPress, setIsLongPress] = React.useState(false)
-  const [time, setTime] = React.useState(1000)
-  useEffect(() => {
-    let timer
-    if (isLongPress) {
-      timer = setTimeout(onClickFunction, time)
-      time > 100 ? setTime(time - 90) : ''
-    } else {
-      clearTimeout(timer)
-      setTime(1000)
-    }
-
-    return () => {
-      clearTimeout(timer)
-    }
-  }, [onClickFunction, isLongPress])
   return (
     <div
+      {...useLongPress}
       onClick={onClickFunction}
-      onTouchStart={() => setIsLongPress(true)}
-      onMouseDown={() => setIsLongPress(true)}
-      onMouseUp={() => setIsLongPress(false)}
-      onMouseLeave={() => setIsLongPress(false)}
-      onTouchEnd={() => setIsLongPress(false)}
       className={`button-common square-button ${emphasis}`}
     >
       {buttonName}

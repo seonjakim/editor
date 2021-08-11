@@ -21,10 +21,16 @@
 }
 .spinbox-window {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1fr);
   gap: 10px;
   padding: 1em;
+}
+.add-spinbox-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /** button related css */
@@ -64,15 +70,24 @@
 
 .number-window {
   width: 50%;
-  background-color: var(--card-background);
+  border: 1px solid #bababa;
+  padding: 5px;
 }
 .input-window {
   width: 100%;
   height: 100%;
-  background-color: transparent;
+  background-color: var(--card-background);
   border: none;
   text-align: center;
   font-size: 2rem;
+}
+/** InputWindow size control */
+.small {
+  width: 240px;
+  height: 40px;
+}
+.small .input-window {
+  font-size: 1rem;
 }
 
 /** icon */
@@ -88,14 +103,20 @@
   transform: rotate(180deg);
 }
 
-@media screen and (max-width: 850px) {
-  .card-container {
-    width: 45%;
+@media screen and (max-width: 1400px) {
+  .spinbox-window {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media screen and (max-width: 690px) {
-  .card-container {
-    width: 100%;
+@media screen and (max-width: 950px) {
+  .spinbox-window {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .spinbox-window {
+    grid-template-columns: 1fr;
   }
 }

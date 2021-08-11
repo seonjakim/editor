@@ -1,17 +1,20 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 
-const useLongPress = (callback = () => {}) => {
+const useLongPress = (callback, ms) => {
   const [isLongPress, setIsLongPress] = useState(false)
-  const [time, setTime] = useState(1000)
+  const [time, setTime] = useState(ms)
+  /**
+   * The reason of using useEffect
+   * to properly clear setTimeout function everytime when it is created
+   */
   useEffect(() => {
     let timer
     if (isLongPress) {
-      console.log(time)
       timer = setTimeout(callback, time)
-      time > 100 ? setTime(time - 1) : ''
+      time > 100 && setTime(time - 90)
     } else {
       clearTimeout(timer)
-      setTime(1000)
+      setTime(ms)
     }
 
     return () => {
@@ -19,19 +22,17 @@ const useLongPress = (callback = () => {}) => {
     }
   }, [callback, isLongPress])
 
-  const onPress = useCallback(() => {
+  const onPress = () => {
     setIsLongPress(true)
-  }, [])
-  const offPress = useCallback(() => {
+  }
+  const offPress = () => {
     setIsLongPress(false)
-  }, [])
+  }
 
   return {
     onMouseDown: onPress,
     onMouseUp: offPress,
     onMouseLeave: offPress,
-    onTouchStart: onPress,
-    onTouchEnd: offPress,
   }
 }
 
