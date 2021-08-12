@@ -3,25 +3,30 @@ import { useState, useEffect, useMemo } from 'react'
 /**
  * with useEffect
  */
-const useLongPress = (callback, ms) => {
+const useLongPress = (onLongPress = () => {}, ms = 1000) => {
   const [isLongPress, setIsLongPress] = useState(false)
-  const [time, setTime] = useState(ms)
+  let timer
+  let delay = ms
+
+  const doInterval = () => {
+    /** shorten the delay time */
+    delay > 100 ? (delay -= 90) : ''
+    timer = setTimeout(() => {
+      onLongPress(), doInterval()
+    }, delay)
+  }
 
   useEffect(() => {
-    let timer
-
     if (isLongPress) {
-      timer = setTimeout(callback, time)
-      time > 100 && setTime(time - 90)
+      doInterval()
     } else {
       clearTimeout(timer)
-      setTime(ms)
     }
 
     return () => {
       clearTimeout(timer)
     }
-  }, [callback, isLongPress])
+  }, [isLongPress])
 
   const onPress = () => {
     setIsLongPress(true)

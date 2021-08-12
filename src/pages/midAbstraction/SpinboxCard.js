@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import InputWindow from '../../components/InputWindow'
 import SquareButton from '../../components/SquareButton'
 import useLongPress from '../../library/useLongPress'
-import useLongPressRecursive from '../../library/useLongPressRecur'
+import useLongPressCompare from '../../library/useLongPressNoUseEffect'
 
 /**
  * each spinbox should work separately
@@ -10,6 +10,7 @@ import useLongPressRecursive from '../../library/useLongPressRecur'
  */
 const SpinboxCard = ({ order }) => {
   const [numberValue, setNumberValue] = React.useState(0)
+  /** for onClick event */
   const increase = useCallback(() => {
     setNumberValue(Number(numberValue) + 1)
   }, [numberValue])
@@ -17,11 +18,26 @@ const SpinboxCard = ({ order }) => {
     setNumberValue(Number(numberValue) - 1)
   }, [numberValue])
 
-  const longPressIncrease = useLongPress(increase, 1000)
-  const longPressDecrease = useLongPress(decrease, 1000)
+  /** for LongPress event */
+  const onLongPressIncrease = () => {
+    setNumberValue((prev) => Number(prev) + 1)
+  }
+  const onLongPressDecrease = () => {
+    setNumberValue((prev) => Number(prev) - 1)
+  }
 
-  // leave this for test purpose
-  const longPressRecursive = useLongPressRecursive(setNumberValue, 1000)
+  const longPressIncrease = useLongPress(onLongPressIncrease, 1000)
+  const longPressDecrease = useLongPress(onLongPressDecrease, 1000)
+
+  // leave this for the test purpose
+  const longPressIncreaseCompare = useLongPressCompare(
+    onLongPressIncrease,
+    1000
+  )
+  const longPressDecreaseCompare = useLongPressCompare(
+    onLongPressDecrease,
+    1000
+  )
 
   const spinboxList = {
     1: <InputWindow key='1' number={numberValue} onChange={setNumberValue} />,
@@ -49,7 +65,7 @@ const SpinboxCard = ({ order }) => {
   return <div className='card-container'>{spinboxOrder}</div>
 }
 
-// the arrow icon in square button
+// the arrow icon in the square button
 const ArrowIcon = ({ up }) => {
   return <div className={`arrow-i ${up}`}></div>
 }

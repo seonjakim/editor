@@ -1,22 +1,25 @@
-import { useRef, useCallback, useMemo } from 'react'
+import { useRef, useMemo } from 'react'
 
 /**
  * without useEffect
  */
-const useLongPressRecursive = (onLongPress = () => {}, ms = 1000) => {
+const useLongPress = (onLongPress = () => {}, ms = 1000) => {
   const timerRef = useRef(false)
+  let delay = ms
 
-  const callback = useCallback(() => {
+  const callback = () => {
     /** functional updates */
-    onLongPress((prev) => prev + 1)
-  }, [onLongPress])
+    onLongPress()
+  }
 
-  const onPress = useCallback(() => {
+  const onPress = () => {
+    /** shorten the delay time */
+    delay > 100 ? (delay -= 90) : ''
     timerRef.current = setTimeout(() => {
       callback()
       onPress()
-    }, ms)
-  }, [callback])
+    }, delay)
+  }
 
   const offPress = () => {
     if (timerRef.current) {
@@ -37,4 +40,4 @@ const useLongPressRecursive = (onLongPress = () => {}, ms = 1000) => {
   )
 }
 
-export default useLongPressRecursive
+export default useLongPress
