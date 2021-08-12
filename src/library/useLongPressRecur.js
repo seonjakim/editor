@@ -1,11 +1,14 @@
 import { useRef, useCallback, useMemo } from 'react'
 
-function useLongPressRecursive({ onLongPress = () => {}, ms = 1000 } = {}) {
+/**
+ * without useEffect
+ */
+const useLongPressRecursive = (onLongPress = () => {}, ms = 1000) => {
   const timerRef = useRef(false)
 
   const callback = useCallback(() => {
-    onLongPress((c) => c + 1)
-    timerRef.current = false
+    /** functional updates */
+    onLongPress((prev) => prev + 1)
   }, [onLongPress])
 
   const onPress = useCallback(() => {

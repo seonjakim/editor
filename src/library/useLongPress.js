@@ -1,14 +1,15 @@
 import { useState, useEffect, useMemo } from 'react'
 
+/**
+ * with useEffect
+ */
 const useLongPress = (callback, ms) => {
   const [isLongPress, setIsLongPress] = useState(false)
   const [time, setTime] = useState(ms)
-  /**
-   * The reason of using useEffect
-   * to properly clear setTimeout function everytime when it is created
-   */
+
   useEffect(() => {
     let timer
+
     if (isLongPress) {
       timer = setTimeout(callback, time)
       time > 100 && setTime(time - 90)

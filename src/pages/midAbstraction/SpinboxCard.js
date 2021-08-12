@@ -1,12 +1,9 @@
 import React, { useCallback } from 'react'
-import InputWindow from './InputWindow'
-import SquareButton from './SquareButton'
-import useLongPress from '../library/useLongPress'
-import useLongPressRecursive from '../library/useLongPressRecur'
+import InputWindow from '../../components/InputWindow'
+import SquareButton from '../../components/SquareButton'
+import useLongPress from '../../library/useLongPress'
+import useLongPressRecursive from '../../library/useLongPressRecur'
 
-const ArrowIcon = ({ up }) => {
-  return <div className={`arrow-i ${up}`}></div>
-}
 /**
  * each spinbox should work separately
  * so that this component contains its own functions
@@ -22,25 +19,18 @@ const SpinboxCard = ({ order }) => {
 
   const longPressIncrease = useLongPress(increase, 1000)
   const longPressDecrease = useLongPress(decrease, 1000)
-  const long = useLongPressRecursive({
-    onLongPress: setNumberValue,
-  })
-  console.log('This is higher com')
+
+  // leave this for test purpose
+  const longPressRecursive = useLongPressRecursive(setNumberValue, 1000)
 
   const spinboxList = {
-    1: (
-      <InputWindow
-        key='1'
-        number={numberValue}
-        onChangeFunction={setNumberValue}
-      />
-    ),
+    1: <InputWindow key='1' number={numberValue} onChange={setNumberValue} />,
     2: (
       <SquareButton
         key='2'
         emphasis='high'
-        onClickFunction={increase}
-        useLongPress={long}
+        onClick={increase}
+        useLongPress={longPressIncrease}
         buttonName={<ArrowIcon up='up' />}
       />
     ),
@@ -48,8 +38,8 @@ const SpinboxCard = ({ order }) => {
       <SquareButton
         key='3'
         emphasis='high'
-        onClickFunction={decrease}
-        useLongPress={long}
+        onClick={decrease}
+        useLongPress={longPressDecrease}
         buttonName={<ArrowIcon />}
       />
     ),
@@ -57,6 +47,11 @@ const SpinboxCard = ({ order }) => {
   const spinboxOrder = order.map((el) => spinboxList[el])
 
   return <div className='card-container'>{spinboxOrder}</div>
+}
+
+// the arrow icon in square button
+const ArrowIcon = ({ up }) => {
+  return <div className={`arrow-i ${up}`}></div>
 }
 
 export default SpinboxCard

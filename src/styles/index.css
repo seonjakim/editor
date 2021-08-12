@@ -9,7 +9,6 @@
   align-items: center;
   background-color: var(--background-color);
 }
-
 .spinbox-container {
   width: 90%;
   height: 90%;
@@ -29,7 +28,7 @@
 .add-spinbox-area {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -40,6 +39,17 @@
   align-items: center;
   justify-content: center;
   border: 1px solid #eee;
+  box-shadow: var(--button-shadow);
+}
+.round-button {
+  width: 80px;
+  height: 80px;
+  font-weight: bold;
+  flex-direction: column;
+  border-radius: 50%;
+}
+.square-button {
+  border-radius: 4px;
 }
 .high {
   background-color: var(--naver-green);
@@ -50,14 +60,6 @@
   color: var(--naver-green);
   border: 1px solid var(--naver-green);
 }
-.round-button {
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
-}
-.square-button {
-  border-radius: 4px;
-}
 
 /** spinbox card related css */
 .card-container {
@@ -67,7 +69,6 @@
   border-radius: 4px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
-
 .number-window {
   width: 50%;
   border: 1px solid #bababa;
@@ -81,7 +82,7 @@
   text-align: center;
   font-size: 2rem;
 }
-/** InputWindow size control */
+/** input-window size control */
 .small {
   width: 240px;
   height: 40px;
@@ -97,6 +98,7 @@
   fill: #fff;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 30%;
   background-image: url(https://pilly.kr/images/icons/common/icon-arrow-down.png);
 }
 .up {
