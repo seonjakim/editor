@@ -6,6 +6,7 @@ const SquareButton = ({
   buttonName,
   emphasis,
 }) => {
+  console.log('hello')
   return (
     <div
       {...useLongPress}

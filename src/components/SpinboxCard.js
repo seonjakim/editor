@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import InputWindow from './InputWindow'
 import SquareButton from './SquareButton'
 import useLongPress from '../library/useLongPress'
+import useLongPressRecursive from '../library/useLongPressRecur'
 
 const ArrowIcon = ({ up }) => {
   return <div className={`arrow-i ${up}`}></div>
@@ -21,6 +22,10 @@ const SpinboxCard = ({ order }) => {
 
   const longPressIncrease = useLongPress(increase, 1000)
   const longPressDecrease = useLongPress(decrease, 1000)
+  const long = useLongPressRecursive({
+    onLongPress: setNumberValue,
+  })
+  console.log('This is higher com')
 
   const spinboxList = {
     1: (
@@ -35,7 +40,7 @@ const SpinboxCard = ({ order }) => {
         key='2'
         emphasis='high'
         onClickFunction={increase}
-        useLongPress={longPressIncrease}
+        useLongPress={long}
         buttonName={<ArrowIcon up='up' />}
       />
     ),
@@ -44,7 +49,7 @@ const SpinboxCard = ({ order }) => {
         key='3'
         emphasis='high'
         onClickFunction={decrease}
-        useLongPress={longPressDecrease}
+        useLongPress={long}
         buttonName={<ArrowIcon />}
       />
     ),

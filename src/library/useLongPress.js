@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 const useLongPress = (callback, ms) => {
   const [isLongPress, setIsLongPress] = useState(false)
@@ -29,11 +29,16 @@ const useLongPress = (callback, ms) => {
     setIsLongPress(false)
   }
 
-  return {
-    onMouseDown: onPress,
-    onMouseUp: offPress,
-    onMouseLeave: offPress,
-  }
+  return useMemo(
+    () => ({
+      onMouseDown: onPress,
+      onMouseUp: offPress,
+      onMouseLeave: offPress,
+      onTouchStart: onPress,
+      onTouchEnd: offPress,
+    }),
+    [onPress, offPress]
+  )
 }
 
 export default useLongPress
