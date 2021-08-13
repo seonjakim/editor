@@ -9,11 +9,11 @@ const useLongPress = (onLongPress = () => {}, ms = 1000) => {
   let delay = ms
 
   const doInterval = () => {
-    /** shorten the delay time */
-    delay > 100 ? (delay -= 90) : ''
     timer = setTimeout(() => {
       onLongPress(), doInterval()
     }, delay)
+    /** shorten the delay time */
+    delay > 100 ? (delay -= 90) : ''
   }
 
   useEffect(() => {

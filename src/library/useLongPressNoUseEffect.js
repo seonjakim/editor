@@ -7,18 +7,13 @@ const useLongPress = (onLongPress = () => {}, ms = 1000) => {
   const timerRef = useRef(false)
   let delay = ms
 
-  const callback = () => {
-    /** functional updates */
-    onLongPress()
-  }
-
   const onPress = () => {
-    /** shorten the delay time */
-    delay > 100 ? (delay -= 90) : ''
     timerRef.current = setTimeout(() => {
-      callback()
+      onLongPress()
       onPress()
     }, delay)
+    /** shorten the delay time */
+    delay > 100 ? (delay -= 90) : ''
   }
 
   const offPress = () => {

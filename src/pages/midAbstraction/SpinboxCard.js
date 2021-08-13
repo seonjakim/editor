@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useState } from 'react'
 import InputWindow from '../../components/InputWindow'
 import SquareButton from '../../components/SquareButton'
 import useLongPress from '../../library/useLongPress'
@@ -9,14 +9,14 @@ import useLongPressCompare from '../../library/useLongPressNoUseEffect'
  * so that this component contains its own functions
  */
 const SpinboxCard = ({ order }) => {
-  const [numberValue, setNumberValue] = React.useState(0)
+  const [numberValue, setNumberValue] = useState(0)
   /** for onClick event */
-  const increase = useCallback(() => {
+  const increase = () => {
     setNumberValue(Number(numberValue) + 1)
-  }, [numberValue])
-  const decrease = useCallback(() => {
+  }
+  const decrease = () => {
     setNumberValue(Number(numberValue) - 1)
-  }, [numberValue])
+  }
 
   /** for LongPress event */
   const onLongPressIncrease = () => {
