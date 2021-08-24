@@ -37,14 +37,14 @@ const App = () => {
   const bottomAreaItems = (
     <>
       <InputWindow
-        placeholder='rearrange spinbox ex) 213'
-        size='small'
+        placeholder="rearrange spinbox ex) 213"
+        size="small"
         onChange={getUserInput}
       />
       <RoundButton
         onClick={checkInputAddSpinbox}
         buttonName={addSpinboxButtonName}
-        emphasis='low'
+        emphasis="low"
       />
     </>
   )
