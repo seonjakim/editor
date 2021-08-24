@@ -37,20 +37,20 @@ const SpinboxCard = ({ order }) => {
   const longPressDecrease = useLongPress(decrease, 1000)
 
   const spinboxList = {
-    1: <InputWindow key='1' number={number} onChange={dispatchNumber} />,
+    1: <InputWindow key="1" number={number} onChange={dispatchNumber} />,
     2: (
       <SquareButton
-        key='2'
-        emphasis='high'
+        key="2"
+        emphasis="high"
         onClick={increase}
         useLongPress={longPressIncreaseCompare}
-        buttonName={<ArrowIcon up='up' />}
+        buttonName={<ArrowIcon up="up" />}
       />
     ),
     3: (
       <SquareButton
-        key='3'
-        emphasis='high'
+        key="3"
+        emphasis="high"
         onClick={decrease}
         useLongPress={longPressDecreaseCompare}
         buttonName={<ArrowIcon />}
@@ -59,7 +59,7 @@ const SpinboxCard = ({ order }) => {
   }
   const spinboxOrder = order.map((el) => spinboxList[el])
 
-  return <div className='card-container'>{spinboxOrder}</div>
+  return <div className="card-container">{spinboxOrder}</div>
 }
 
 // the arrow icon in the square button

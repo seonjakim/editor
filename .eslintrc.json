@@ -25,7 +25,7 @@
         "printWidth": 80,
         "trailingComma": "es5",
         "semi": false,
-        "jsxSingleQuote": true,
+        "jsxSingleQuote": false,
         "singleQuote": true
       }
     ]
