@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './src/pages/App'
-import './src/styles/index.css'
+import App from './src/App'
+import '../styles/style.css'
 
 ReactDOM.render(<App />, document.querySelector('#app'))
