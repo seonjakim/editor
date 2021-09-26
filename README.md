@@ -18,7 +18,7 @@
   - [Performance](#>-Performance)
   - [Scalability](#>-Scalability)
 
-[Bundler (Rollup vs Parcel vs Webpack)](#Bundler-(Rollup-vs-Parcel-vs-Webpack))
+[Bundler (Rollup vs Parcel vs Webpack)](#bundler-rollup-vs-parcel-vs-webpack)
 
 - [빌드속도와 사이즈 비교](#빌드속도와-사이즈-비교)
 - [Parcel과 Webpack 비교](#Parcel과-Webpack-비교)
